@@ -3,5 +3,5 @@
 # @author:          Zahra Firoz
 # @email:           ZahraF@UW.edu
 # @website:         https://
-# @organization:    Geo 458a Lab number #, University of Washington, Seattle
-# @description:     
+# @organization:    Geo 458a Lab number #6, University of Washington, Seattle
+# @description:     Smart Dashboard depicting a certain phenomena 
