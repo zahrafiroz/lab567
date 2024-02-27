@@ -4,4 +4,4 @@
 # @email:           ZahraF@UW.edu
 # @website:         https://
 # @organization:    Geo 458a Lab number #6, University of Washington, Seattle
-# @description:     Smart Dashboard depicting reported hate crimes
+# @description:     Smart Dashboard depicting reported crimes in Los Angeles County
