@@ -184,7 +184,7 @@
         const legend = document.getElementById('legend');
 
         //set up legend grades content and labels
-        let labels = ['<strong>Magnitude</strong>'],
+        let labels = ['<strong>Deaths</strong>'],
             vbreak;
 
         //iterate through grades and create a scaled circle and label for each
@@ -227,14 +227,14 @@
                 // add a source of the data and then add the layer out of the source
                 map.addSource('overdose', {
                     type: 'geojson',
-                    data: earthquakes
+                    data: overdose
                 });
 
 
                 map.addLayer({
                         'id': 'earthquakes-point',
                         'type': 'circle',
-                        'source': 'earthquakes',
+                        'source': 'overdose',
                         'minzoom': 5,
                         'paint': {
                             // increase the radii of the circle as mag value increases
