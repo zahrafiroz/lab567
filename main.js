@@ -25,7 +25,7 @@ const grades = [4, 5, 6],
 const legend = document.getElementById('legend');
 
 //set up legend grades content and labels
-let labels = ['<strong>Magnitude</strong>'], vbreak;
+let labels = ['<strong>Count</strong>'], vbreak;
 
 //iterate through grades and create a scaled circle and label for each
 for (var i = 0; i < grades.length; i++) {
@@ -74,7 +74,7 @@ async function geojsonFetch() {
         map.addLayer({
                 'id': 'earthquakes-point',
                 'type': 'circle',
-                'source': 'earthquakes',
+                'source': 'overdose',
                 'minzoom': 5,
                 'paint': {
                     // increase the radii of the circle as mag value increases
@@ -108,7 +108,7 @@ async function geojsonFetch() {
         map.on('click', 'earthquakes-point', (event) => {
             new mapboxgl.Popup()
                 .setLngLat(event.features[0].geometry.coordinates)
-                .setHTML(`<strong>Magnitude:</strong> ${event.features[0].properties.mag}`)
+                .setHTML(`<strong>DeathCount:</strong> ${event.features[0].properties.mag}`)
                 .addTo(map);
         });
 
