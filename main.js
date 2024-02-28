@@ -41,7 +41,7 @@ for (var i = 0; i < grades.length; i++) {
 
 }
 const source =
-    '<p style="text-align: right; font-size:10pt">Source: <a href="https://earthquake.usgs.gov/earthquakes/">USGS</a></p>';
+    '<p style="text-align: right; font-size:10pt">Source: <a href="https://catalog.data.gov/dataset/drug-overdose-death-rates-by-drug-type-sex-age-race-and-hispanic-origin-united-states-3f72f">USGS</a></p>';
 
 // join all the labels and the source to create the legend content.
 legend.innerHTML = labels.join('') + source;
@@ -54,7 +54,7 @@ async function geojsonFetch() {
     // Await operator is used to wait for a promise. 
     // An await can cause an async function to pause until a Promise is settled.
     let response;
-    response = await fetch('assets/earthquakes.geojson');
+    response = await fetch('overdose.geojson');
     earthquakes = await response.json();
 
 
@@ -65,9 +65,9 @@ async function geojsonFetch() {
 
         // when loading a geojson, there are two steps
         // add a source of the data and then add the layer out of the source
-        map.addSource('earthquakes', {
+        map.addSource('overdose', {
             type: 'geojson',
-            data: earthquakes
+            data: overdose
         });
 
 
