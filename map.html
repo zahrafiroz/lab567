@@ -3,12 +3,12 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Earthquakes in Japan</title>
+    <title>Drug overdose death rates, by drug type, sex, age, race, and Hispanic origin: United States</title>
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
     <link href="https://fonts.googleapis.com/css?family=Titillium+Web|Oswald" rel="stylesheet">
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="css/c3.min.css">
+    <link rel="stylesheet" href="c3.min.css">
     <style>
         body {
             margin: 0;
@@ -130,42 +130,28 @@
         }
     </style>
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.js"></script>
-    <script src="js/d3.js"></script>
-    <script src="js/c3.min.js"></script>
+    <script src="d3.js"></script>
+    <script src="c3.min.js"></script>
 </head>
 
 <body>
     <div id="info">
         <div id="title">
-            Earthquakes in Japan - September 2017
-            <span><a href="https://twitter.com/UW" target="_blank"><i class="bi bi-twitter"></i></a></span>
-            <span><a href="https://github.com/jakobzhao/geog458" target="_blank"><i class="bi bi-github"></i></a></span>
+            Overdose deaths in the USA by; drug type, sex, age, race, and Hispanic origin
+            <span><a href="https://catalog.data.gov/dataset/drug-overdose-death-rates-by-drug-type-sex-age-race-and-hispanic-origin-united-states-3f72f" target="_blank"><i class="bi bi-twitter"></i></a></span>
+            <span><a href="https://github.com/zahrafiroz" target="_blank"><i class="bi bi-github"></i></a></span>
             <span id="reset"><a href="#">reset</a></span>
         </div>
         <div id="count" class="card">
-            <h5 id="desc"> # Earthquakes in the displaying region</h5>
+            <h5 id="desc"> # Overdose deaths in the Region</h5>
             <p id="earthquake-count"></p>
         </div>
         <div id="earthquake-chart"></div>
 
         <div id="footer">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-            ea commodo consequat. Duis aute
-            irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-            occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum
-            dolor sit amet,
-            consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-            minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-            irure dolor in reprehenderit
-            in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-            proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet,
-            consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
-            in voluptate velit esse cillum
-            dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-            deserunt mollit anim id est laborum.
+            The data provided in this smart dashboard was taken from catalog.data.gov
+            Published by: Centers for Disease Control and Prevention
+            Maintained by: National Center for Health Statistics
         </div>
     </div>
     <div id="map"></div>
@@ -173,7 +159,7 @@
     <script>
         // assign the access token
         mapboxgl.accessToken =
-            'pk.eyJ1IjoiamFrb2J6aGFvIiwiYSI6ImNpcms2YWsyMzAwMmtmbG5icTFxZ3ZkdncifQ.P9MBej1xacybKcDN_jehvw';
+            'pk.eyJ1IjoiemFocmFmaXJveiIsImEiOiJjbHJ0b2U5OWcwOGZ1MnJvZWd5eHJxZHRiIn0.UAlpZ7eUZCoP02oOa7xGKA';
 
         // declare the map object
         let map = new mapboxgl.Map({
@@ -215,7 +201,7 @@
 
         }
         const source =
-            '<p style="text-align: right; font-size:10pt">Source: <a href="https://earthquake.usgs.gov/earthquakes/">USGS</a></p>';
+            '<p style="text-align: right; font-size:10pt">Source: <a href="https://catalog.data.gov/dataset/drug-overdose-death-rates-by-drug-type-sex-age-race-and-hispanic-origin-united-states-3f72f">USGS</a></p>';
 
         // join all the labels and the source to create the legend content.
         legend.innerHTML = labels.join('') + source;
@@ -228,7 +214,7 @@
             // Await operator is used to wait for a promise. 
             // An await can cause an async function to pause until a Promise is settled.
             let response;
-            response = await fetch('assets/earthquakes.geojson');
+            response = await fetch('overdose.geojson');
             earthquakes = await response.json();
 
 
@@ -239,7 +225,7 @@
 
                 // when loading a geojson, there are two steps
                 // add a source of the data and then add the layer out of the source
-                map.addSource('earthquakes', {
+                map.addSource('overdose', {
                     type: 'geojson',
                     data: earthquakes
                 });
