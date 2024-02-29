@@ -29,9 +29,9 @@
         </div>
         <div id="count" class="card">
             <h5 id="desc"> # Overdose deaths in the Region</h5>
-            <p id="earthquake-count"></p>
+            <p id="overdose-count"></p>
         </div>
-        <div id="earthquake-chart"></div>
+        <div id="overdose-chart"></div>
 
         <div id="footer">
             The data provided in this smart dashboard was taken from catalog.data.gov
@@ -41,7 +41,21 @@
     </div>
     <div id="map"></div>
     <div id="legend"></div>
-    <script src="main.js"></script>
+    <script         
+        mapboxgl.accessToken =
+            'pk.eyJ1IjoiemFocmFmaXJveiIsImEiOiJjbHJ0b2U5OWcwOGZ1MnJvZWd5eHJxZHRiIn0.UAlpZ7eUZCoP02oOa7xGKA';
+
+        // declare the map object
+        let map = new mapboxgl.Map({
+            container: 'map', // container ID
+            style: 'mapbox://styles/mapbox/dark-v10',
+            zoom: 5, // starting zoom
+            minZoom: 5,
+            center: [138, 38] // starting center
+        });
+>
+        
+    </script>
 </body>
 
 </html>
