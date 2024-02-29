@@ -15,3 +15,6 @@ you will need to identify and use other geospatial datasets from the Internet or
 The thematic map should be either a choropleth map or a proportional symbol map. Please example in the readme file why you choose this type of map. (10 POINTS)
 and at least two other data visualization components, like charts, dynamic icons/numbers, or diagrams. (10 POINTS)
 make sure the repository accessible through the url https://[your_github_username].github.io/[your_repository_name]. Also, please provide the url to your webmap in the readme.md file. (5 POINTS).'
+
+## Findings:
+This was a very intriguing study to conduct for me after seeing the visualization about the earthquakes in Japan. I was a bit ignorant to the fact that earthquakes were such a common occurance in the world. I think that because we only hear so much about the horrific and large scale ones, the smaller ones get railroaded and pushed to the side. This means that it is often downplayed how apart from the large scale earthquakes that get on the news there are major ones happening nearly every single day that people are suffering the consequences of these quakes. 
