@@ -45,15 +45,14 @@
             'pk.eyJ1IjoiemFocmFmaXJveiIsImEiOiJjbHJ0b2U5OWcwOGZ1MnJvZWd5eHJxZHRiIn0.UAlpZ7eUZCoP02oOa7xGKA';
 
         // declare the map object
-        let map = new mapboxgl.Map({
+let map = new mapboxgl.Map({
             container: 'map', // container ID
             style: 'mapbox://styles/mapbox/dark-v10',
             zoom: 5, // starting zoom
             minZoom: 5,
-            center: [37.350,-98.647] // starting center
-                            });
-
-                async function geojsonFetch() {
+            center: [138, 38] // starting center
+        });
+ async function geojsonFetch() {
 
             // Await operator is used to wait for a promise. 
             // An await can cause an async function to pause until a Promise is settled.
