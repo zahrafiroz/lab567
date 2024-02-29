@@ -2,7 +2,7 @@
 # Created February/March 2024
 # @author:          Zahra Firoz
 # @email:           ZahraF@UW.edu
-# @website:         [https://](https://zahrafiroz.github.io/lab567/index.html)
+# @website:         https://zahrafiroz.github.io/lab567/index.html
 # @organization:    Geo 458a Lab number #6, University of Washington, Seattle
 # @description:     Smart Dashboard depicting global earthquakes within the past 30 days
 
