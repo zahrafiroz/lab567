@@ -17,9 +17,9 @@ let earthquakeChart = null,
     numEarthquakes = 0;
 
 // create a few constant variables.
-const grades = [4, 5, 6],
-    colors = ['rgb(208,209,230)', 'rgb(103,169,207)', 'rgb(1,108,89)'],
-    radii = [5, 15, 20];
+const grades = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+    colors = ['rgb(208,209,230)', 'rgb(103,169,207)', 'rgb(1,108,89)', 'rgb(208,209,30)', 'rgb(103,19,207)', 'rgb(1,10,89)', 'rgb(28,209,230)', 'rgb(103,169,27)', 'rgb(1,82,89)', 'rgb(241,108,8)'],
+    radii = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50];
 
 // create the legend object and anchor it to the html element with id legend.
 const legend = document.getElementById('legend');
@@ -75,7 +75,7 @@ async function geojsonFetch() {
                 'id': 'earthquakes-point',
                 'type': 'circle',
                 'source': 'earthquakes',
-                'minzoom': 5,
+                'minzoom': 1,
                 'paint': {
                     // increase the radii of the circle as mag value increases
                     'circle-radius': {
@@ -84,6 +84,14 @@ async function geojsonFetch() {
                             [grades[0], radii[0]],
                             [grades[1], radii[1]],
                             [grades[2], radii[2]]
+                            [grades[3], radii[3]],
+                            [grades[4], radii[4]],
+                            [grades[5], radii[5]]
+                            [grades[6], radii[6]],
+                            [grades[7], radii[7]],
+                            [grades[8], radii[8]]
+                            [grades[9], radii[9]],
+                            [grades[10], radii[10]]
                         ]
                     },
                     // change the color of the circle as mag value increases
@@ -93,6 +101,14 @@ async function geojsonFetch() {
                             [grades[0], colors[0]],
                             [grades[1], colors[1]],
                             [grades[2], colors[2]]
+                            [grades[3], colors[3]],
+                            [grades[4], colors[4]],
+                            [grades[5], colors[5]]
+                            [grades[6], colors[6]],
+                            [grades[7], colors[7]],
+                            [grades[8], colors[8]]
+                            [grades[9], colors[9]],
+                            [grades[10], colors[10]],
                         ]
                     },
                     'circle-stroke-color': 'white',
@@ -120,7 +136,7 @@ async function geojsonFetch() {
         magnitudes = calEarthquakes(earthquakes, map.getBounds());
         
         // enumerate the number of earthquakes.
-        numEarthquakes = magnitudes[4] + magnitudes[5] + magnitudes[6];
+        numEarthquakes = magnitudes[1] + magnitudes[2] + magnitudes[3] + magnitudes[4] + magnitudes[5] + magnitudes[6] + magnitudes[7] + magnitudes[8] + magnitudes[9] + magnitudes[10];
 
         // update the content of the element earthquake-count.
         document.getElementById("earthquake-count").innerHTML = numEarthquakes;
@@ -166,7 +182,7 @@ async function geojsonFetch() {
                 },
                 y: { //count
                     tick: {
-                        values: [10, 20, 30, 40]
+                        values: [10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
                     }
                 }
             },
@@ -185,7 +201,7 @@ async function geojsonFetch() {
     map.on('idle', () => { //simplifying the function statement: arrow with brackets to define a function
 
         magnitudes = calEarthquakes(earthquakes, map.getBounds());
-        numEarthquakes = magnitudes[4] + magnitudes[5] + magnitudes[6];
+        numEarthquakes = magnitudes[1] + magnitudes[2] + magnitudes[3] + magnitudes[4] + magnitudes[5] + magnitudes[6] + magnitudes[7] + magnitudes[8] + magnitudes[9] + magnitudes[10];
         document.getElementById("earthquake-count").innerHTML = numEarthquakes;
 
 
@@ -207,9 +223,16 @@ geojsonFetch();
 function calEarthquakes(currentEarthquakes, currentMapBounds) {
 
     let magnitudesClasses = {
+        1: 0
+        2: 0
+        3: 0
         4: 0,
         5: 0,
         6: 0
+        7: 0
+        8: 0
+        9: 0
+        10: 0
     };
     currentEarthquakes.features.forEach(function (d) { // d indicate a feature of currentEarthquakes
         // contains is a spatial operation to determine whether a point within a bbox or not.
