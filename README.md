@@ -2,11 +2,11 @@
 # Created February/March 2024
 # @author:          Zahra Firoz
 # @email:           ZahraF@UW.edu
-# @website:         https://
+# @website:         [https://](https://zahrafiroz.github.io/lab567/index.html)
 # @organization:    Geo 458a Lab number #6, University of Washington, Seattle
-# @description:     Smart Dashboard depicting earthquakes in the United States of America
+# @description:     Smart Dashboard depicting global earthquakes within the past 30 days
 
-This project works to examine the earthquakes in the USA. These rates and the data included in them were collected by catalog.data.gov and used in this smart dashboard. 
+This project works to examine the earthquakes in the USA. These rates and the data included in them were collected by the USGS government website and used in this smart dashboard. 
 
 
 ## Requirments:
