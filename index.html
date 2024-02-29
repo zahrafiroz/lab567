@@ -51,6 +51,27 @@
             zoom: 5, // starting zoom
             minZoom: 5,
             center: [37.350,-98.647] // starting center
+                            });
+
+                async function geojsonFetch() {
+
+            // Await operator is used to wait for a promise. 
+            // An await can cause an async function to pause until a Promise is settled.
+            let response;
+            response = await fetch('overdose.json');
+            earthquakes = await response.json();
+
+
+
+            //load data to the map as new layers.
+            //map.on('load', function loadingData() {
+            map.on('load', () => { //simplifying the function statement: arrow with brackets to define a function
+
+                // when loading a geojson, there are two steps
+                // add a source of the data and then add the layer out of the source
+                map.addSource('overdose', {
+                    type: 'json',
+                    data: overdose
         });
     </script>
 </body>
