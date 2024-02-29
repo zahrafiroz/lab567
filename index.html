@@ -52,8 +52,65 @@
             zoom: 5, // starting zoom
             minZoom: 5,
             center: [39.499,-96.064] // starting center
+             async function geojsonFetch() {
+
+            // Await operator is used to wait for a promise. 
+            // An await can cause an async function to pause until a Promise is settled.
+            let response;
+            response = await fetch('overdose.geojson');
+            earthquakes = await response.json();
+
+
+
+            //load data to the map as new layers.
+            //map.on('load', function loadingData() {
+            map.on('load', () => { //simplifying the function statement: arrow with brackets to define a function
+
+                // when loading a geojson, there are two steps
+                // add a source of the data and then add the layer out of the source
+                map.addSource('overdose', {
+                    type: 'geojson',
+                    data: overdose
+                });
+        map.addLayer({
+                        'id': 'overdose-point',
+                        'type': 'circle',
+                        'source': 'overdose',
+                        'minzoom': 5,
+                        'paint': {
+                            // increase the radii of the circle as mag value increases
+                            'circle-radius': {
+                                'property': 'count',
+                                'stops': [
+                                    [grades[0], radii[0]],
+                                    [grades[1], radii[1]],
+                                    [grades[2], radii[2]]
+                                ]
+                            },
+                            // change the color of the circle as mag value increases
+                            'circle-color': {
+                                'property': 'count',
+                                'stops': [
+                                    [grades[0], colors[0]],
+                                    [grades[1], colors[1]],
+                                    [grades[2], colors[2]]
+                                ]
+                            },
+                            'circle-stroke-color': 'white',
+                            'circle-stroke-width': 1,
+                            'circle-opacity': 0.6
+                        }
+                    },
+                                     map.on('click', 'overdose-point', (event) => {
+                    new mapboxgl.Popup()
+                        .setLngLat(event.features[0].geometry.coordinates)
+                        .setHTML(`<strong>DeathCount:</strong> ${event.features[0].properties.mag}`)
+                        .addTo(map);
+                });
+
+
+
         });
->
         
     </script>
 </body>
