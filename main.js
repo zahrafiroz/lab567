@@ -1,11 +1,11 @@
 // assign the access token
 mapboxgl.accessToken =
-    'pk.eyJ1IjoiamFrb2J6aGFvIiwiYSI6ImNpcms2YWsyMzAwMmtmbG5icTFxZ3ZkdncifQ.P9MBej1xacybKcDN_jehvw';
+    'pk.eyJ1IjoiemFocmFmaXJveiIsImEiOiJjbHJ0b2U5OWcwOGZ1MnJvZWd5eHJxZHRiIn0.UAlpZ7eUZCoP02oOa7xGKA';
 
 // declare the map object
 let map = new mapboxgl.Map({
     container: 'map', // container ID
-    style: 'mapbox://styles/mapbox/dark-v10',
+    style: 'mapbox://styles/mapbox/standard',
     zoom: 5, // starting zoom
     minZoom: 5,
     center: [138, 38] // starting center
@@ -54,7 +54,7 @@ async function geojsonFetch() {
     // Await operator is used to wait for a promise. 
     // An await can cause an async function to pause until a Promise is settled.
     let response;
-    response = await fetch('assets/earthquakes.geojson');
+    response = await fetch('earthquakes.geojson');
     earthquakes = await response.json();
 
 
