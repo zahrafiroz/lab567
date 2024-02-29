@@ -6,8 +6,8 @@ mapboxgl.accessToken =
 let map = new mapboxgl.Map({
     container: 'map', // container ID
     style: 'mapbox://styles/mapbox/dark-v10',
-    zoom: 5, // starting zoom
-    minZoom: 5,
+    zoom: 1, // starting zoom
+    minZoom: 1,
     center: [138, 38] // starting center
 });
 
@@ -228,7 +228,7 @@ reset.addEventListener('click', event => {
 
     // this event will trigger the map fly to its origin location and zoom level.
     map.flyTo({
-        zoom: 5,
+        zoom: 1,
         center: [138, 38]
     });
     // also remove all the applied filters
